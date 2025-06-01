@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Undangan Mengayunkan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { width: 100%; height: 100%; font-family: sans-serif; background: #f9f9f9; }
+
+    .page {
+      display: none;
+      width: 100%;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .page.active { display: flex; }
+
+    .cover img, .main img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .btn-open, .btn-maps {
+      margin: 10px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: transparent;
+      color: #333;
+      border: 2px solid #87CEFA; /* Light blue border */
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .btn-open:hover, .btn-maps:hover {
+      background-color: #87CEFA; /* Light blue */
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Halaman Cover -->
+<div id="coverPage" class="page active cover">
+  <img src="shaf233.png" alt="Cover Undangan">
+  <button class="btn-open" onclick="openInvitation()">Buka Undangan</button>
+</div>
+
+<!-- Halaman Utama Undangan -->
+<div id="mainPage" class="page main">
+  <img src="shaf222.png" alt="Undangan Utama">
+  <button class="btn-maps" onclick="openMaps()">Lihat Lokasi di Google Maps</button>
+</div>
+
+<!-- Audio -->
+<audio id="bgm" loop>
+  <source src="Musik3.mp3" type="audio/mp3">
+  Browser Anda tidak mendukung audio.
+</audio>
+
+<script>
+  function openInvitation() {
+    document.getElementById('coverPage').classList.remove('active');
+    document.getElementById('mainPage').classList.add('active');
+    document.getElementById('bgm').play();
+  }
+
+  function openMaps() {
+    window.open('https://maps.app.goo.gl/RianHfoq6Kuk3EMW9', '_blank');
+  }
+</script>
+
+</body>
+</html>
